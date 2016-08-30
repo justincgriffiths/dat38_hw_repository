@@ -1,0 +1,92 @@
+Assignment #2: Project Design Writeup
+
+Predicting CLV Profit Based on Observed Order Data
+
+	Problem Statement and Hypothesis
+
+		Problem:
+			Currently, my company struggles to accurately predict the 1, 5, and 10 year profit contributions for new customers. Specifically, we struggle with inaccurate estimates of future profit contributions and systematically underestimate the value of subscription customers for at least 3-4 months.
+
+		Hypothesis:
+			By including many variables not currently included and using a more granular model to predict repurchase probabilty for subscription customers, we will be able to predict profit CLV for customers more accurately at an at an earlier stage in their lifetime.
+
+		Machine Learning Problem:
+
+
+		Impact:
+			By building a more accurate estimate of CLV, PetFlow will be able to spend marketing budget more efficiently to acquire more profitbale customers by shortening the time for feedback to identify value drivers while they're still relevant and have predictive power.
+
+		Biggest Impact:
+			High level, three factors will be most important: (1) likelihood of repurchase, (2) frequency of repurchase, and (3) order margin on 2+ orders.
+
+			Specific variables I expect to be important are the following: subscription status/recurring interval, cart profit margin, and discount amount per order.
+			I believe, be the most important factors in determining future profit contribution.
+
+	Dataset:
+		Customer:
+			registration date
+			email address
+
+
+		Order History:
+			number of orders
+			line items
+			quantity
+			unit cost of good
+			order overhead (average)
+			shipping address details
+			billing address detail
+			payment information
+			coupon / discount information
+			order UTM source/medium/campaign
+
+
+		Existing CLV Prediction:
+
+	Domain Knowledge:
+
+		Experience:
+			I have been working with this data for the past year and know quite well what the levers are for driving revenue growth and profitability for a promotional (order-level)standpoint.
+
+		Relevance for Analysis:
+			This will inform how I undersatnd initial results and iterate to make my model fit better--for example, I'll have to think on the fly about what variables I can create from existing data to create better inputs for the model.
+		Other research:
+			Vendors:
+				I have some open source knowledge about the current CLV data provider we have and what their model is built on, as well as a few slideshows about the results of prior model refits that I think can inform how I approach building a new model. I will provide those if necessary.
+			
+			In-House Work:
+				I also have an understanding of the values we've used in the past to feed our engine and have done some previous work to improve it. The work 
+
+	Project Concerns:
+
+		Three main concerns exist: scope, actionability, outliers
+			
+			Scope: this is a big, broad sweeping project and I'm concerned about what milestones I should be planning to hit by the end of class. This is something I'd expect to contnue honing well beyond the end of this class.
+
+			Actionability: the insights will be actionable, but i have to think about how this would be implemented on our website. That is, at the point of purchase, how much data can we surface at the point of purchase and beyond without negatively impacting site performance
+
+			Outliers: If used as feedback for a dynamic bidding strategy, how could I control for bad predictions based on outliers (e.g. nucharacteristic orders from normal customers OR identify resellers/breeders, who place unusually large and frequent orders)
+
+		Missing Data:
+
+			Digitally Acquired Customers and SEM Competition: certain customers who are comfortable shopping online are harder to keep loyal, and certain brands have more competition in the CPC environment--I'm concerned about creating feedback that might lead us to bid on customers that,a fter those considerations, are less profitable, so I would like to know more about the CPC enviroment we would need to compete in, if any, to retain that customer. That will largely affect the long-term value of each customers.
+
+			Site Behavior Data:
+			I would like more information on the sessions leading to checkout to see if more information on how a session goes will affect the CLV of that customer further down the line, especially when considered alongside other variables (e.g. acquisition source, first purchase coupon).
+
+		Risks and benefits:
+
+			Two primary benefits exist here. First, building a more accurate predictive model will give us better insight into the variables driving customer lifetime value in an actionable way, and will allow us tospend our budget more efficiently. Second, if the predictions are accurate enough, it could save us money on an external vendor, which would be roughly the same as adding $30K revenue per month.
+
+		Incorrect data:
+			Yes, current CLV estimates are just that--estimates. They have a margin for error that is quite significant for the first few months. In addition, some of our profitability data is innacurate at times due to flaws in our data architecture and how we put in COGS data. That said, it's what we work with, and I'm aware of most of the flaws in the system and can work around it.
+
+	Outcomes:
+		
+		I'm hoping that the output of this project can be a single number that correlates with customer CLV based on each checkout. Implicitly underlying that would be a foundation for a predictive CLV model, but that in itself is a larger project.
+
+		My target audience is hoping for exactly what I described--either a predicitve CLV model or inputs for our bidding engine--nobody really cares.
+
+		To be a success, my prject has to be actionable and implemented in some way on our site. It needs to be reliable and accurate enough to be either used in lieu of our current CLV provider OR be used as an imnput for our bidding engine (which is a much smaller task).
+
+		If the project is a bust, I'll figure out a new way to attack the data and start to gain meaningful insights about customer behavior
